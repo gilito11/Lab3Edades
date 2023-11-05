@@ -4,23 +4,13 @@ import java.util.*;
 public class MainTokenizer {
 
     public static void main (String[]args){
-        List<Symbol> listaDeSimbolos = new ArrayList<>();
 
-        listaDeSimbolos.add(new OpenClaudator());
-        listaDeSimbolos.add(new ClosingClaudator());
-        listaDeSimbolos.add(new ClosingParentesis());
-        listaDeSimbolos.add(new OpenParentesis());
+        testCase_1();
+        testCase_2();
+        testCase_3();
 
 
-        boolean resultado = comprovarExpressio(listaDeSimbolos);
-        if (resultado) {
-            System.out.println("La expresión es válida.");
-        } else {
-            System.out.println("La expresión no es válida.");
-        }
     }
-
-
 
     public static <E extends Symbol> boolean comprovarExpressio(List<E> list){
         Pila<Symbol> pila = new Pila<>();
@@ -46,5 +36,99 @@ public class MainTokenizer {
         }
         return pila.isEmpty();
     }
+    public static void testCase_1(){
+        List<Symbol> simbols = new ArrayList<>();
+        OpenParentesis openParentesis = new OpenParentesis();
+        ClosingParentesis closingParentesis = new ClosingParentesis();
+        OpenClaudator openClaudator = new OpenClaudator();
+        ClosingClaudator closingClaudator = new ClosingClaudator();
+
+        simbols.add(openClaudator);
+        simbols.add(closingClaudator);
+        simbols.add(openParentesis);
+        simbols.add(closingParentesis);
+
+
+        System.out.println("Test Case 1: ");
+        System.out.println("-------------");
+        for (Symbol simbol : simbols){
+            System.out.println(simbol.toString());
+        }
+        System.out.println("-------------");
+
+
+        boolean resultado = comprovarExpressio(simbols);
+        if (resultado) {
+            System.out.println("Resultat: Espressió correcte.");
+            System.out.println("-------------");
+        } else {
+            System.out.println("Resultat: Espressió incorrecte.");
+            System.out.println("-------------");
+        }
+
+    }
+    public static void testCase_2(){
+        List<Symbol> simbols = new ArrayList<>();
+        OpenParentesis openParentesis = new OpenParentesis();
+        ClosingParentesis closingParentesis = new ClosingParentesis();
+        OpenClaudator openClaudator = new OpenClaudator();
+        ClosingClaudator closingClaudator = new ClosingClaudator();
+
+        simbols.add(openClaudator);
+        simbols.add(closingClaudator);
+        simbols.add(openParentesis);
+        simbols.add(closingParentesis);
+
+
+        System.out.println("Test Case 2: ");
+        System.out.println("-------------");
+        for (Symbol simbol : simbols){
+            System.out.println(simbol.toString());
+        }
+        System.out.println("-------------");
+
+
+        boolean resultado = comprovarExpressio(simbols);
+        if (resultado) {
+            System.out.println("Resultat: Espressió correcte.");
+            System.out.println("-------------");
+        } else {
+            System.out.println("Resultat: Espressió incorrecte.");
+            System.out.println("-------------");
+        }
+    }
+
+    public static void testCase_3(){
+        List<Symbol> simbols = new ArrayList<>();
+        OpenParentesis openParentesis = new OpenParentesis();
+        ClosingParentesis closingParentesis = new ClosingParentesis();
+        OpenClaudator openClaudator = new OpenClaudator();
+        ClosingClaudator closingClaudator = new ClosingClaudator();
+
+        simbols.add(closingClaudator);
+        simbols.add(openClaudator);
+        simbols.add(openParentesis);
+        simbols.add(closingParentesis);
+
+        System.out.println("Test Case 3: ");
+        System.out.println("-------------");
+        for (Symbol simbol : simbols){
+            System.out.println(simbol.toString());
+        }
+        System.out.println("-------------");
+
+
+        boolean resultado = comprovarExpressio(simbols);
+        if (resultado) {
+            System.out.println("Resultat: Espressió correcte.");
+            System.out.println("-------------");
+        } else {
+            System.out.println("Resultat: Espressió incorrecte.");
+            System.out.println("-------------");
+        }
+
+    }
+
+
 
 }
