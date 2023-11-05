@@ -11,18 +11,29 @@ public class ListCua<E> implements CuaInterface<E>{
 
     @Override
     public void insert(E x) {
-        NodeLlista<E> node = new NodeLlista<>(x);
+        NodeLlista<E> nouNode = new NodeLlista<>(x);
         if(isEmpty()){
-            cap = node;
-            cua = node;
+            cap = nouNode;
+            cua = nouNode;
         }
-        cua.next = node;
-        cua = node;
+        cua.setNext(nouNode);
+        cua = nouNode;
     }
 
     @Override
     public E remove() {
-        return null;
+        if (cap == null) {
+            throw new IllegalStateException("La cua està buida");
+        }
+
+        E node = cap.getPerson();
+        cap = cap.getNext();
+
+        if (cap == null) {
+            cua = null;
+        }
+
+        return node;
     }
 
 
